@@ -1,3 +1,23 @@
-html {
-  font-family: Verdana, sans-serif;
+/* Fuentes locales */
+@font-face {
+    font-family: 'pacificoregular';
+    src: url('fonts/pacifico-webfont.woff2') format('woff2'),
+         url('fonts/pacifico-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
 }
+
+@font-face {
+    font-family: 'robotoblack';
+    src: url('fonts/roboto-black-webfont.woff2') format('woff2'),
+         url('fonts/roboto-black-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+html {
+  font-family: 'pacificoregular', Verdana, sans-serif;
+}
+
