@@ -88,6 +88,48 @@ input[type="submit"] {
   color: white;
 }
 
+#loginForm {
+  display: none;
+  position: absolute;
+  margin-left: auto;
+  margin-right: auto;
+  left: 0;
+  right: 0;
+  width: 320px;
+  border: 1px solid #CCC;
+  border-radius: 1em;
+  padding: 1em;
+  background-color: #006666;
+}
+
+#loginForm div + div {
+  margin-top: 1em;
+}
+
+#loginForm label {
+  display: block;
+  width: 100%;
+  text-align: center;
+  color: white;
+  font: 1.6em Verdana;
+}
+
+#loginForm input {
+  font: 1.6em sans-serif;
+  width: 100%;
+  box-sizing: border-box;
+  border: 1px solid #999;
+  clear: both;
+}
+
+#loginForm input:focus {
+  border-color: #000;
+}
+
+#loginForm .button {
+  text-align: center;
+}
+
 /* Tipografía */
 html {
   font-size: 10px;

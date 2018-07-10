@@ -1,3 +1,5 @@
-$('h1').on('click', () => {
-  alert("Hola mundo!");
+$(document).ready(() => {
+  $('#login').on('click', () => {
+    $('#loginForm').toggle();
+  })
 })

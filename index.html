@@ -16,7 +16,7 @@
         <li><a href="#">Inicio</a></li>
         <li><a href="#">Marcas</a></li>
         <li><a href="#">Nosotros</a></li>
-        <li><a href="#">Iniciar sesión</a></li>
+        <li id="login"><a href="#">Iniciar sesión</a></li>
       </ul>
 
       <form>
@@ -25,9 +25,23 @@
       </form>
     </nav>
 
+      <form id="loginForm" action="checkLogin.php" method="POST">
+        <div>
+          <label for="nombre">Usuario:</label>
+          <input type="text" id="nombre" name="nombre_usuario" required>
+        </div>
+        <div>
+          <label for="clave">Contraseña:</label>
+          <input type="password" id="clave" name="contrasena" required>
+        </div>
+        <div class="button">
+          <button>Iniciar Sesión</button>
+        </div>
+      </form>
+
     <main>
     </main>
-    
+
     <footer>
     </footer>
     <script src="scripts/jquery.js"></script>
