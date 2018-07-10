@@ -9,10 +9,18 @@ class Usuarios {
 
   public function listaUsuarios()
   {
-    $query = $this->conexion->prepare("SELECT * FROM Usuario");
-    $query->execute();
+    $consulta = $this->conexion->prepare("SELECT * FROM Usuario");
+    $consulta->execute();
 
-    return $query;
+    return $consulta;
+  }
+
+  public function encontrarUsuario($nombre)
+  {
+    $consulta = $this->conexion->prepare("SELECT * FROM Usuario WHERE nombre='$nombre'");
+    $consulta->execute();
+
+    return $consulta;
   }
 }
 ?>
