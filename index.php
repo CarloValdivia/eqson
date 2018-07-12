@@ -14,7 +14,7 @@
       <div class="derecha">
           <ul>
               <?php if (isset($_SESSION['username'])): ?>
-                  <li><a href="controladores/logout.php"><?= $_SESSION['username'] ?></a></li>
+                  <li><a href="controladores/logout.php" onclick="return confirm('Desea terminar la sesión?');"><?= $_SESSION['username'] ?></a></li>
               <?php else: ?>
                   <li><a href="vistas/login.html">Iniciar Sesión</a></li>
               <?php endif; ?>
