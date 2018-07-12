@@ -16,12 +16,9 @@
 }
 
 /* Propiedades de cajas */
-html, body {
+html {
   margin: 0;
   padding: 0;
-}
-
-html {
   background-color: #b2d8d8;
 }
 
@@ -30,50 +27,51 @@ body {
   margin: 0 auto;
 }
 
+header {
+  margin:0;
+  padding: 0;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 0;
+}
+
+header p {
+  margin-top: 0;
+}
+
 nav, footer {
-  background-color: white;
   padding: 1%;
+  background-color: white;
 }
 
 nav {
   height: 50px;
+  margin-bottom: 10px;
   background-color: #004c4c;
   display: flex;
-  margin-bottom: 10px;
+  flex-flow: row wrap;
 }
 
-nav ul {
-  padding: 0;
-  list-style-type: none;
-  flex: 2;
-  display: flex;
-}
-
-nav li {
-  display: inline;
-  text-align: center;
-  flex: 1;
-}
-
-nav a {
-  display: inline-block;
-  font-size: 2rem;
-  text-transform: uppercase;
-  text-decoration: none;
-  color: white;
-}
-
-nav form {
+nav .izquierda {
   flex: 1;
   display: flex;
   align-items: center;
+}
+
+nav .centro {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   padding: 0 2em;
 }
 
 input {
-  font-size: 1.6rem;
-  height: 32px;
+  font-size: 1.4rem;
+  height: 30px;
 }
 
 input[type="search"] {
@@ -88,29 +86,68 @@ input[type="submit"] {
   color: white;
 }
 
+nav .derecha {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+}
+
+nav ul {
+  padding: 0;
+  list-style-type: none;
+  display: flex;
+}
+
+.izquierda ul {
+  width: 100%;
+}
+
+nav li {
+  display: inline;
+  text-align: center;
+  flex: 1;
+}
+
+nav a {
+  outline: none;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 2rem;
+  text-transform: uppercase;
+  color: white;
+}
+
+nav a:link, nav a:visited, nav a:focus {
+  color: white;
+}
+
+nav a:hover {
+  color: black;
+}
+
+nav a:active {
+  color: #3fbf7f;
+}
+
+footer {
+  margin-top: 10px;
+}
+
 /* Tipografía */
 html {
   font-size: 10px;
   font-family: sans-serif;
 }
 
-header h1, header p {
+header {
   font-family: 'pacificoregular';
 }
 
 header h1 {
   font-size: 3rem;
-  text-align: center;
-  margin-bottom: 0;
 }
 
 header p {
-  margin-top: 0;
   font-size: 2rem;
-  text-align: center;
-}
-
-li {
-  font-size: 1.6rem;
-  line-height: 1.5;
 }
