@@ -7,7 +7,7 @@ class Usuarios {
     $this->conexion = new PDO("mysql:host=localhost;dbname=eqson", "root", "");
   }
 
-  public function listaUsuarios()
+  public function listarUsuarios()
   {
     $consulta = $this->conexion->prepare("SELECT * FROM Usuario");
     $consulta->execute();
