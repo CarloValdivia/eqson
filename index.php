@@ -13,12 +13,11 @@
   ?>
       <div class="derecha">
           <ul>
-
               <!-- Muestra usuario -->
               <?php if (isset($_SESSION['username'])): ?>
                   <!-- Link a almacen -->
                   <?php if (isset($_SESSION['admin']) and $_SESSION['admin'] == 1): ?>
-                      <li><a href="vistas/almacen.php">Almacén</a></li>
+                      <li><a href="vistas/almacen.html">Almacén</a></li>
                       <!-- Link a productos -->
                   <?php else: ?>
                       <li><a href="vistas/misProductos.html">Mis productos</a></li>
