@@ -17,6 +17,7 @@ if ($count > 0)
   if (strcmp($clave, $record['clave']) === 0) {
     $_SESSION['loggedin'] = true;
     $_SESSION['username'] = $nombre;
+    $_SESSION['admin'] = $record['esAdmin'];
     header('Location: ../index.php');
   } else {
     echo "Contraseña incorrecta!";

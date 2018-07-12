@@ -13,6 +13,12 @@
   ?>
       <div class="derecha">
           <ul>
+              <!-- Link a almacen -->
+              <?php if (isset($_SESSION['admin']) and $_SESSION['admin'] == 1): ?>
+                  <li><a href="vistas/almacen.php">Almacén</a></li>
+              <?php endif; ?>
+
+              <!-- Muestra usuario -->
               <?php if (isset($_SESSION['username'])): ?>
                   <li><a href="controladores/logout.php" onclick="return confirm('Desea terminar la sesión?');"><?= $_SESSION['username'] ?></a></li>
               <?php else: ?>
