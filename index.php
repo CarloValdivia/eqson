@@ -13,13 +13,16 @@
   ?>
       <div class="derecha">
           <ul>
-              <!-- Link a almacen -->
-              <?php if (isset($_SESSION['admin']) and $_SESSION['admin'] == 1): ?>
-                  <li><a href="vistas/almacen.php">Almacén</a></li>
-              <?php endif; ?>
 
               <!-- Muestra usuario -->
               <?php if (isset($_SESSION['username'])): ?>
+                  <!-- Link a almacen -->
+                  <?php if (isset($_SESSION['admin']) and $_SESSION['admin'] == 1): ?>
+                      <li><a href="vistas/almacen.php">Almacén</a></li>
+                      <!-- Link a productos -->
+                  <?php else: ?>
+                      <li><a href="vistas/misProductos.html">Mis productos</a></li>
+                  <?php endif; ?>
                   <li><a href="controladores/logout.php" onclick="return confirm('Desea terminar la sesión?');"><?= $_SESSION['username'] ?></a></li>
               <?php else: ?>
                   <li><a href="vistas/login.html">Iniciar Sesión</a></li>
@@ -27,6 +30,7 @@
           </ul>
       </div>
   </nav>
+  <!-- Fin de barra de navegación -->
 
   <main></main>
 
