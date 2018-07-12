@@ -1,20 +1,25 @@
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
+    <meta charset="UTF-8">
+    <link href="../app/estilos/principal.css" rel="stylesheet" type="text/css">
+    <title>Eqson: Inicio de sesión</title>
+<style>
+  body {
+    background: #456;
+    font-family: 'Open Sans', sans-serif;
+    padding-bottom: 3rem;
+  }
+</style>
   </head>
-  <form id="loginForm" action="app/modelos/login.php" method="POST">
-    <div>
-      <label for="nombre">Usuario:</label>
-      <input type="text" id="nombre" name="nombre_usuario" required>
-    </div>
-    <div>
-      <label for="clave">Contraseña:</label>
-      <input type="password" id="clave" name="contrasena" required>
-    </div>
-    <div class="button">
-      <button>Iniciar Sesión</button>
-    </div>
-  </form>
   <body>
+    <div class="login">
+      <div class="login-triangle"></div>
+      <h2 class="login-header">Iniciar Sesión</h2>
+      <form class="login-container" action="app/controladores/login.php" method="POST">
+        <p><input type="text" placeholder="Usuario" name="nombre" required></p>
+        <p><input type="password" placeholder="Contraseña" name="contrasena" required></p>
+        <p><input type="submit" value="Entrar"></p>
+      </form>
   </body>
 </html>
