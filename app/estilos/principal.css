@@ -98,7 +98,6 @@ nav .derecha {
   flex: 1;
   display: flex;
   align-items: center;
-  justify-content: flex-end;
 }
 
 nav ul {
@@ -107,7 +106,7 @@ nav ul {
   display: flex;
 }
 
-.izquierda ul {
+.izquierda ul, .derecha ul {
   width: 100%;
 }
 
