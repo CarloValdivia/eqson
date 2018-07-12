@@ -16,10 +16,12 @@
     <div class="login">
       <div class="login-triangle"></div>
       <h2 class="login-header">Iniciar Sesión</h2>
-      <form class="login-container" action="app/controladores/login.php" method="POST">
-        <p><input type="text" placeholder="Usuario" name="nombre" required></p>
+      <form class="login-container" action="../controladores/login.php" method="POST">
+        <p><input type="text" placeholder="Usuario" name="nombre_usuario" required></p>
         <p><input type="password" placeholder="Contraseña" name="contrasena" required></p>
         <p><input type="submit" value="Entrar"></p>
       </form>
+
+      <p><a href="../index.php">Página principal</a></p>
   </body>
 </html>
