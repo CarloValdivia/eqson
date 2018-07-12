@@ -22,5 +22,13 @@ class Usuarios {
 
     return $consulta;
   }
+
+  public function esAdmin($nombre)
+  {
+      $consulta = $this->conexion->prepare("SELECT esAdmin FROM Usuario WHERE nombre='$nombre'");
+      $consulta->execute();
+
+      return $consulta;
+  }
 }
 ?>
