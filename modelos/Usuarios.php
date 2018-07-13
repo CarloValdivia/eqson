@@ -31,4 +31,3 @@ class Usuarios {
       return $consulta;
   }
 }
-?>
