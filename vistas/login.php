@@ -19,7 +19,7 @@ if ($nombre and $clave) {
         $record = $resultado->fetch(PDO::FETCH_ASSOC);
         if (strcmp($clave, $record['clave']) === 0) {
             $_SESSION['usuario'] = $nombre;
-            $_SESSION['privilegio'] = $record['esAdmin'];
+            $_SESSION['privilegio'] = $record['privilegio'];
             header('Location: ../index.php');
         } else {
             $claveIncorrecta = true;
