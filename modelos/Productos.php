@@ -17,7 +17,7 @@ class Productos {
 
     public function agregarProducto($marca, $modelo, $imagen, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock)
     {
-        $sql = "INSERT INTO Producto VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+        $sql = "INSERT INTO Producto (marca, modelo, imagen, descripcion, especificaciones, precioFabrica, precioVenta, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
         $stmt = $this->conexion->prepare($sql)->execute([$marca, $modelo, $imagen, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock]);
     }
 }
