@@ -1,4 +1,5 @@
 <?php session_start(); ?>
+
 <!DOCTYPE html>
 <html lang="es">
   <head>
@@ -13,18 +14,20 @@
   ?>
       <div class="derecha">
           <ul>
-              <!-- Muestra usuario -->
-              <?php if (isset($_SESSION['username'])): ?>
-                  <!-- Link a almacen -->
-                  <?php if (isset($_SESSION['admin']) and $_SESSION['admin'] == 1): ?>
+              <!-- Muestra almacen o misProductos de acuerdo a privilegio de usuario -->
+              <?php if (isset($_SESSION['usuario'])): ?>
+                  <!-- Link a almacén -->
+                  <?php if ($_SESSION['privilegio'] == 1): ?>
                       <li><a href="vistas/almacen.html">Almacén</a></li>
-                      <!-- Link a productos -->
+                  <!-- Link a productos -->
                   <?php else: ?>
                       <li><a href="vistas/misProductos.html">Mis productos</a></li>
                   <?php endif; ?>
-                  <li><a href="controladores/logout.php" onclick="return confirm('Desea terminar la sesión?');"><?= $_SESSION['username'] ?></a></li>
+
+                  <!-- Item de inicio de sesión -->
+                  <li><a href="controladores/logout.php" onclick="return confirm('Desea terminar la sesión?');"><?= $_SESSION['usuario'] ?></a></li>
               <?php else: ?>
-                  <li><a href="vistas/login.html">Iniciar Sesión</a></li>
+                  <li><a href="vistas/login.php">Iniciar Sesión</a></li>
               <?php endif; ?>
           </ul>
       </div>
