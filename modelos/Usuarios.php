@@ -23,11 +23,14 @@ class Usuarios {
     return $consulta;
   }
 
-  public function esAdmin($nombre)
+  public function agregarUsuario($nombre, $clave, $direccion, $privilegio)
   {
-      $consulta = $this->conexion->prepare("SELECT esAdmin FROM Usuario WHERE nombre='$nombre'");
-      $consulta->execute();
+    $sql = "INSERT INTO Usuario (nombre, clave, direccion, privilegio) VALUES (?, ?, ?, ?) ";
+    $stmt = $this->conexion->prepare($sql);
+    $stmt->execute([$nombre, $clave, $direccion, $privilegio]);
 
-      return $consulta;
+    $deleted = $stmt->rowCount();
+
+    return $deleted;
   }
 }
