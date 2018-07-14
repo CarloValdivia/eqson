@@ -1,26 +1,4 @@
-<?php
-
-require '../modelos/Usuarios.php';
-
-$data = new Usuarios();
-$data->conectar();
-
-$nombre = $_POST['nombre_usuario'] ?? '';
-$clave = $_POST['contrasena_usuario'] ?? '';
-$direccion = $_POST['direccion_domicilio'] ?? '';
-$privilegio = $_POST['privilegio'] ?? '';
-
-$usuarioYaExiste = false;
-
-if ($nombre) {
-    $resultado = $data->agregarUsuario($nombre, $clave, $direccion, $privilegio);
-
-    if (!$resultado)  {
-        $usuarioYaExiste = true;
-    }
-}
-
-?>
+<?php session_start() ?>
 
 <!DOCTYPE html>
 <html>
@@ -30,7 +8,7 @@ if ($nombre) {
   <link href="../app/estilos/formularios.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-    <form action="" method="POST">
+    <form action="../controladores/agregarUsuario.php" method="POST">
         <h1>Registro de usuarios</h1>
         <p>Campos requeridos son marcados con un <strong><abbr title="requerido">*</abbr></strong>.</p>
         <section>
@@ -59,8 +37,8 @@ if ($nombre) {
                 </label>
                 <input type="text" id="nombre" name="nombre_usuario" required>
             </p>
-            <? if ($usuarioYaExiste): ?>
-            <p style="color=red;">
+            <? if (isset($_GET["usuario"]) && $_GET["usuario"] == 'repetido'): ?>
+            <p style="color:red;">
                 Ya existe este usuario
             </p>
             <? endif; ?>
