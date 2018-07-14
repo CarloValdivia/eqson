@@ -4,12 +4,11 @@ USE `eqson` ;
 -- Table `eqson`.`Usuario`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `eqson`.`Usuario` (
-  `idUsuario` INT NOT NULL AUTO_INCREMENT,
   `nombre` VARCHAR(10) NOT NULL,
   `clave` VARCHAR(20) NOT NULL,
   `direccion` VARCHAR(100) NULL,
   `privilegio` TINYINT(1) NOT NULL,
-  PRIMARY KEY (`idUsuario`, `nombre`))
+  PRIMARY KEY (`nombre`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -19,7 +18,7 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `eqson`.`Producto`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `eqson`.`Producto` (
-  `idProducto` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `marca` VARCHAR(20) NOT NULL,
   `modelo` VARCHAR(20) NOT NULL,
   `imagen` LONGBLOB NOT NULL,
@@ -28,7 +27,8 @@ CREATE TABLE IF NOT EXISTS `eqson`.`Producto` (
   `precioFabrica` DECIMAL(15,2) NOT NULL,
   `precioVenta` DECIMAL(15,2) NOT NULL,
   `stock` INT NOT NULL,
-  PRIMARY KEY (`idProducto`, `marca`, `modelo`))
+  PRIMARY KEY (`marca`, `modelo`),
+  UNIQUE INDEX `id_UNIQUE` (`id` ASC))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -38,10 +38,10 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `eqson`.`Ticket`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `eqson`.`Ticket` (
-  `idTicket` INT NOT NULL AUTO_INCREMENT,
+  `id` INT NOT NULL AUTO_INCREMENT,
   `cantidad` INT NOT NULL,
   `fecha` DATETIME NOT NULL,
-  PRIMARY KEY (`idTicket`))
+  PRIMARY KEY (`id`))
 ENGINE = InnoDB
 DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_ci;
@@ -57,12 +57,12 @@ CREATE TABLE IF NOT EXISTS `eqson`.`Venta` (
   INDEX `fk_Venta_1_idx` (`idProducto` ASC),
   CONSTRAINT `fk_Venta_1`
     FOREIGN KEY (`idProducto`)
-    REFERENCES `eqson`.`Producto` (`idProducto`)
+    REFERENCES `eqson`.`Producto` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE,
   CONSTRAINT `fk_Venta_2`
     FOREIGN KEY (`idTicket`)
-    REFERENCES `eqson`.`Ticket` (`idTicket`)
+    REFERENCES `eqson`.`Ticket` (`id`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
@@ -74,18 +74,18 @@ COLLATE = utf8mb4_unicode_ci;
 -- Table `eqson`.`Compra`
 -- -----------------------------------------------------
 CREATE TABLE IF NOT EXISTS `eqson`.`Compra` (
-  `idUsuario` INT NOT NULL,
+  `nombreUsuario` VARCHAR(10) NOT NULL,
   `idTicket` INT NOT NULL,
-  PRIMARY KEY (`idUsuario`, `idTicket`),
+  PRIMARY KEY (`nombreUsuario`, `idTicket`),
   INDEX `fk_Compra_2_idx` (`idTicket` ASC),
-  CONSTRAINT `fk_Compra_1`
-    FOREIGN KEY (`idUsuario`)
-    REFERENCES `eqson`.`Usuario` (`idUsuario`)
-    ON DELETE CASCADE
-    ON UPDATE CASCADE,
   CONSTRAINT `fk_Compra_2`
     FOREIGN KEY (`idTicket`)
-    REFERENCES `eqson`.`Ticket` (`idTicket`)
+    REFERENCES `eqson`.`Ticket` (`id`)
+    ON DELETE CASCADE
+    ON UPDATE CASCADE,
+  CONSTRAINT `fk_Compra_1`
+    FOREIGN KEY (`nombreUsuario`)
+    REFERENCES `eqson`.`Usuario` (`nombre`)
     ON DELETE CASCADE
     ON UPDATE CASCADE)
 ENGINE = InnoDB
