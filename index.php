@@ -9,6 +9,7 @@
 </head>
 <body>
   <?php include 'vistas/cabeceraPagina.html'; ?>
+
   <!-- Barra de navegación dinámica. -->
   <nav>
     <div class="izquierda">
@@ -33,11 +34,11 @@
         <?php if (isset($_SESSION['usuario'])): ?>
           <!-- Link a almacén -->
           <?php if ($_SESSION['privilegio'] == 1): ?>
-          <li><a href="vistas/almacen.html">Almacén</a></li>
-          <li><a href="vistas/usuarios.php">Usuarios</a></li>
-           <!-- Link a productos -->
+            <li><a href="vistas/almacen.html">Almacén</a></li>
+            <li><a href="vistas/usuarios.php">Usuarios</a></li>
+          <!-- Link a productos -->
           <?php else: ?>
-          <li><a href="vistas/misProductos.html">Mis productos</a></li>
+            <li><a href="vistas/misProductos.html">Mis productos</a></li>
           <?php endif; ?>
 
           <!-- Item de inicio de sesión -->
