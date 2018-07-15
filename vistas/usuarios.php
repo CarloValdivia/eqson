@@ -32,7 +32,7 @@
       </fieldset>
       <p>
         <label for="nombre">
-          <span>Nombre: </span>
+          <span>Nombre de usuario: </span>
           <strong><abbr title="requerido">*</abbr></strong>
         </label>
         <input type="text" id="nombre" name="nombre_usuario" required>
