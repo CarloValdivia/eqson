@@ -18,4 +18,3 @@ $stock =  $_POST['cantidad'];
 
 $data->agregarProducto($marca, $modelo, $imagen, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock);
 header('Location: ../vistas/almacen.html');
-
