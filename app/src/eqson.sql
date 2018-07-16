@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS `eqson`.`Producto` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `marca` VARCHAR(20) NOT NULL,
   `modelo` VARCHAR(20) NOT NULL,
-  `imagen` LONGBLOB NOT NULL,
+  `imagen` VARCHAR(260) NOT NULL,
   `descripcion` VARCHAR(200) NOT NULL,
   `especificaciones` VARCHAR(400) NULL,
   `precioFabrica` DECIMAL(15,2) NOT NULL,
