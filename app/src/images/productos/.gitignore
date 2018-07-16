@@ -1,0 +1,4 @@
+# Ignorando todas las imagenes de esta carpeta
+*
+# A excepción de:
+!.gitignore
