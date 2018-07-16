@@ -34,7 +34,7 @@
         <?php if (isset($_SESSION['usuario'])): ?>
           <!-- Link a almacén -->
           <?php if ($_SESSION['privilegio'] == 1): ?>
-            <li><a href="vistas/almacen.html">Almacén</a></li>
+            <li><a href="vistas/almacen.php">Almacén</a></li>
             <li><a href="vistas/usuarios.php">Usuarios</a></li>
           <!-- Link a productos -->
           <?php else: ?>
