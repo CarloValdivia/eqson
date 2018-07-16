@@ -29,9 +29,14 @@
           <span>Imagen referencial:</span>
           <strong><abbr title="Se requiere una imagen">*</abbr></strong>
         </label>
-        <input type="hidden" name="MAX_FILE_SIZE" value="300000">
         <input type="file" id="imagen" name="imagen_producto" accept="image/*" required>
       </p>
+      <?php if (isset($_GET["formato"]) && $_GET["formato"] == 'invalido'): ?>
+        <p style="color: red;">Formato de imagen inválido</p>
+      <?php endif; ?>
+      <?php if (isset($_GET["tamano"]) && $_GET["tamano"] == 'over300kb'): ?>
+        <p style="color: red;">Imagen excede los 300 kilobytes</p>
+      <?php endif; ?>
     </section>
     <section>
       <h2>Descripción y especificaciones</h2>
