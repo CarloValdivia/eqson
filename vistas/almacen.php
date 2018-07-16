@@ -5,7 +5,7 @@
   <link href="../app/estilos/formularios.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-  <form action="../controladores/agregarProducto.php" method="POST">
+  <form action="../controladores/agregarProducto.php" method="POST" enctype="multipart/form-data">
     <h1>Agregar nuevo producto</h1>
     <p>Campos requeridos son mostrados con un <strong><abbr title="Requerido">*</abbr></strong>.</p>
     <section>
@@ -29,6 +29,7 @@
           <span>Imagen referencial:</span>
           <strong><abbr title="Se requiere una imagen">*</abbr></strong>
         </label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="300000">
         <input type="file" id="imagen" name="imagen_producto" accept="image/*" required>
       </p>
     </section>
