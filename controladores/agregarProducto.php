@@ -5,10 +5,9 @@ require '../modelos/Productos.php';
 $data = new Productos();
 $data->conectar();
 
-// Agregando productos
 $marca =  $_POST['marca_producto'];
 $modelo =  $_POST['modelo_producto'];
-$imagen =  $_POST['imagen_producto'];
+$imagen =  $_FILES['imagen_producto']['name'] ?? '';
 $descripcion =  $_POST['descripcion_producto'];
 // Si es que no recibe un valor darle un ''
 $especificaciones =  $_POST['especificaciones_producto'] ?? '';
@@ -16,5 +15,28 @@ $precioFabrica =  $_POST['precio_fabrica'];
 $precioVenta =  $_POST['precio_venta'];
 $stock =  $_POST['cantidad'];
 
-$data->agregarProducto($marca, $modelo, $imagen, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock);
-header('Location: ../vistas/almacen.html');
+// Límite de tamaño es 300 kilobytes
+$maxsize = 300000;
+if ($imagen && $_FILES['imagen_producto']['size'] <= $maxsize) {
+    $uploaddir = $_SERVER['DOCUMENT_ROOT'] . '/eqson/app/src/images/productos/';
+    $uploadfile = $uploaddir . basename($imagen);
+    $mimetype = mime_content_type($_FILES['imagen_producto']['tmp_name']);
+    // Extensiones de imágenes aceptadas
+    $imagenExtsAceptadas = array(
+        'image/jpeg',
+        'image/jpg',
+        'image/png',
+        'image/gif'
+    );
+    if (in_array($mimetype, $imagenExtsAceptadas)) {
+        $data->agregarProducto($marca, $modelo, $uploadfile, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock);
+        move_uploaded_file($_FILES['imagen_producto']['tmp_name'], $uploadfile);
+        header('Location: ../vistas/almacen.php');
+    } else {
+        header('Location: ../vistas/almacen.php?formato=invalido');
+    }
+
+} else {
+    header('Location: ../vistas/almacen.php?tamano=over300kb');
+}
+
