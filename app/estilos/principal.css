@@ -137,6 +137,38 @@ nav a:active {
   color: #3fbf7f;
 }
 
+.products {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+.product-card {
+  padding: 2%;
+  flex-grow: 1;
+  flex-basis: 16%;
+  display: flex;
+}
+
+.product-image img {
+  max-width: 100%;
+}
+
+.product-info {
+  margin-top: auto;
+}
+
+@media (max-width: 920px) {
+  .product-card {
+    flex: 1 21%;
+  }
+}
+
+/* Select the first two */
+.products .product-card:first-child,
+.products .product-card:nth-child(2) {
+  flex: 2 46%;
+}
+
 footer {
   margin-top: 10px;
 }
