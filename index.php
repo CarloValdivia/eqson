@@ -53,26 +53,22 @@
   <!-- Fin de barra de navegación -->
 
   <main>
-    <?php $tuplas = $pdo->query('SELECT * FROM Producto'); ?>
-
-    <div class="container">
-      <div class="list">
-        <?php foreach($tuplas as $record): ?>
-        <article class="list--item">
-          <figure>
-            <img src="<?php echo $record['imagen'] ?>" width="250px" height="250px" alt="<?php echo $record['descripcion'] ?>">
-            <header>
-              <div class="footer"></div>
-              <h2><?php echo $record['marca']. '-'. $record['modelo'] ?></h2>
-            </header>
-            <figcaption>
-              <?php echo $record['descripcion'] ?>
-            </figcaption>
-          </figure>
-        </article>
-        <?php endforeach; ?>
+    <!-- Mostrando productos -->
+    <section class="products">
+      <?php $tuplas = $pdo->query('SELECT * FROM Producto'); ?>
+      <?php foreach($tuplas as $record): ?>
+      <div class="product-card">
+        <div class="product-image">
+          <img src="<?php echo $record['imagen'] ?>" alt="<?php echo $record['descripcion'] ?>">
+        </div>
+        <div class="product-info">
+          <h5><?php echo $record['marca']. '-'. $record['modelo'] ?></h5>
+          <h6><?php echo $record['precioVenta'] ?></h6>
+        </div>
       </div>
-    </div>
+      <?php endforeach; ?>
+    </section>
+    <!-- Fin de conjunto de productos -->
   </main>
 
   <?php include 'vistas/piePagina.html'; ?>
