@@ -37,6 +37,9 @@
       <?php if (isset($_GET["tamano"]) && $_GET["tamano"] == 'over300kb'): ?>
         <p style="color: red;">Imagen excede los 300 kilobytes</p>
       <?php endif; ?>
+      <?php if (isset($_GET["producto"]) && $_GET["producto"] == 'yaExiste'): ?>
+        <p style="color: red;">Este producto ya existe en la tienda</p>
+      <?php endif; ?>
     </section>
     <section>
       <h2>Descripción y especificaciones</h2>
