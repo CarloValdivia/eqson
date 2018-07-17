@@ -27,12 +27,20 @@ class Usuarios {
     public function agregarUsuario($nombre, $clave, $direccion, $privilegio)
     {
         global $pdo;
+        $data = [$nombre, $clave, $direccion, $privilegio];
+        $inserted = true;
 
-        $stmt = $pdo->prepare("INSERT INTO Usuario (nombre, clave, direccion, privilegio) VALUES (?, ?, ?, ?)");
-        $stmt->execute([$nombre, $clave, $direccion, $privilegio]);
+        try {
+            $pdo->prepare("INSERT INTO Usuario VALUES (?,?,?,?)")->execute($data);
+        } catch (PDOException $e) {
+            $existingkey = "Integrity constraint violation: 1062 Duplicate entry";
+            if (strpos($e->getMessage(), $existingkey) !== FALSE) {
+                $inserted = false;
+            } else {
+                throw $e;
+            }
+        }
 
-        $deleted = $stmt->rowCount();
-
-        return $deleted;
+        return $inserted;
     }
 }
