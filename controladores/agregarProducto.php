@@ -29,9 +29,13 @@ if ($imagen && $_FILES['imagen_producto']['size'] <= $maxsize) {
         'image/gif'
     );
     if (in_array($mimetype, $imagenExtsAceptadas)) {
-        $data->agregarProducto($marca, $modelo, $filepath, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock);
-        move_uploaded_file($_FILES['imagen_producto']['tmp_name'], $uploadfile);
-        header('Location: ../vistas/almacen.php');
+        $resultado = $data->agregarProducto($marca, $modelo, $filepath, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock);
+        if ($resultado) {
+            move_uploaded_file($_FILES['imagen_producto']['tmp_name'], $uploadfile);
+            header('Location: ../vistas/almacen.php');
+        } else {
+            header('Location: ../vistas/almacen.php?producto=yaExiste');
+        }
     } else {
         header('Location: ../vistas/almacen.php?formato=invalido');
     }
