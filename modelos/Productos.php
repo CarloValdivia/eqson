@@ -1,23 +1,23 @@
 <?php
-class Productos {
-    protected $conexion = null;
 
-    public function conectar()
-    {
-        $this->conexion = new PDO("mysql:host=localhost;dbname=eqson", "root", "");
-    }
+require_once '../app/dbConexion.php';
+
+class Productos {
 
     public function listarProductos()
     {
-        $consulta = $this->conexion->prepare("SELECT * FROM Producto");
-        $consulta->execute();
+        global $pdo;
+
+        $consulta = $pdo->query("SELECT * FROM Producto");
 
         return $consulta;
     }
 
     public function agregarProducto($marca, $modelo, $imagen, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock)
     {
+        global $pdo;
+
         $sql = "INSERT INTO Producto (marca, modelo, imagen, descripcion, especificaciones, precioFabrica, precioVenta, stock) VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
-        $stmt = $this->conexion->prepare($sql)->execute([$marca, $modelo, $imagen, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock]);
+        $pdo->prepare($sql)->execute([$marca, $modelo, $imagen, $descripcion, $especificaciones, $precioFabrica, $precioVenta, $stock]);
     }
 }

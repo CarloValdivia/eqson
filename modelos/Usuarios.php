@@ -1,36 +1,38 @@
 <?php
+
+require_once '../app/dbConexion.php';
+
 class Usuarios {
-  protected $conexion = null;
 
-  public function conectar()
-  {
-    $this->conexion = new PDO("mysql:host=localhost;dbname=eqson", "root", "");
-  }
+    public function listarUsuarios()
+    {
+        global $pdo;
 
-  public function listarUsuarios()
-  {
-    $consulta = $this->conexion->prepare("SELECT * FROM Usuario");
-    $consulta->execute();
+        $consulta = $pdo->query('SELECT * FROM Usuario');
 
-    return $consulta;
-  }
+        return $consulta;
+    }
 
-  public function encontrarUsuario($nombre)
-  {
-    $consulta = $this->conexion->prepare("SELECT * FROM Usuario WHERE nombre='$nombre'");
-    $consulta->execute();
+    public function encontrarUsuario($nombre)
+    {
+        global $pdo;
 
-    return $consulta;
-  }
+        $consulta = $pdo->prepare("SELECT * FROM Usuario WHERE nombre = ?");
+        $consulta->execute([$nombre]);
+        $usuario = $consulta->fetch();
 
-  public function agregarUsuario($nombre, $clave, $direccion, $privilegio)
-  {
-    $sql = "INSERT INTO Usuario (nombre, clave, direccion, privilegio) VALUES (?, ?, ?, ?) ";
-    $stmt = $this->conexion->prepare($sql);
-    $stmt->execute([$nombre, $clave, $direccion, $privilegio]);
+        return $usuario;
+    }
 
-    $deleted = $stmt->rowCount();
+    public function agregarUsuario($nombre, $clave, $direccion, $privilegio)
+    {
+        global $pdo;
 
-    return $deleted;
-  }
+        $stmt = $pdo->prepare("INSERT INTO Usuario (nombre, clave, direccion, privilegio) VALUES (?, ?, ?, ?)");
+        $stmt->execute([$nombre, $clave, $direccion, $privilegio]);
+
+        $deleted = $stmt->rowCount();
+
+        return $deleted;
+    }
 }
