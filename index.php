@@ -1,3 +1,4 @@
+<?php require_once 'app/dbConexion.php'; ?>
 <?php session_start(); ?>
 
 <!DOCTYPE html>
@@ -51,7 +52,28 @@
   </nav>
   <!-- Fin de barra de navegación -->
 
-  <main></main>
+  <main>
+    <?php $tuplas = $pdo->query('SELECT * FROM Producto'); ?>
+
+    <div class="container">
+      <div class="list">
+        <?php foreach($tuplas as $record): ?>
+        <article class="list--item">
+          <figure>
+            <img src="<?php echo $record['imagen'] ?>" width="250px" height="250px" alt="<?php echo $record['descripcion'] ?>">
+            <header>
+              <div class="footer"></div>
+              <h2><?php echo $record['marca']. '-'. $record['modelo'] ?></h2>
+            </header>
+            <figcaption>
+              <?php echo $record['descripcion'] ?>
+            </figcaption>
+          </figure>
+        </article>
+        <?php endforeach; ?>
+      </div>
+    </div>
+  </main>
 
   <?php include 'vistas/piePagina.html'; ?>
 
