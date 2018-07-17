@@ -1,3 +1,5 @@
+<?php session_start(); ?>
+<?php if ($_SESSION['privilegio'] == 1): ?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -90,3 +92,6 @@
   </p>
 </body>
 </html>
+<?php else: ?>
+Acceso no autorizado
+<?php endif; ?>
