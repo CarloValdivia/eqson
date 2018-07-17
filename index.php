@@ -13,8 +13,8 @@
 
   <!-- Barra de navegación dinámica. -->
   <nav>
-    <div class="izquierda">
-      <ul>
+    <div>
+      <ul class="seccion">
         <li>
           <a href="#">Inicio</a>
         </li>
@@ -23,14 +23,14 @@
         </li>
       </ul>
     </div>
-    <div class="centro">
-      <form>
+    <div>
+      <form class="seccion">
         <input type="search" name="q" placeholder="Encuentra tu equipo de sonido">
         <input type="submit" value="Buscar">
       </form>
     </div>
-    <div class="derecha">
-      <ul>
+    <div>
+      <ul class="seccion">
         <!-- Muestra almacen o misProductos de acuerdo a privilegio de usuario -->
         <?php if (isset($_SESSION['usuario'])): ?>
           <!-- Link a almacén -->
@@ -55,6 +55,7 @@
   <main>
     <!-- Mostrando productos -->
     <section class="products">
+      <h2>Stereos - Microcomponentes y Componentes</h2>
       <?php $tuplas = $pdo->query('SELECT * FROM Producto'); ?>
       <?php foreach($tuplas as $record): ?>
       <div class="product-card">
