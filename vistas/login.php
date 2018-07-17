@@ -6,14 +6,46 @@
   <link href="../app/estilos/login.css" rel="stylesheet" type="text/css">
   <title>Eqson: Inicio de sesión</title>
   <style>
+    html {
+      height: 100%;
+    }
+
     body {
+      width: 50%;
+      margin: 0 auto;
       background: #456;
       font-family: 'Open Sans', sans-serif;
-      padding-bottom: 3rem;
     }
+
+    .login {
+      min-height: calc(86vh - 120px);
+    }
+
+    header {
+      height: 80px;
+    }
+
+    footer {
+      height: 40px;
+    }
+
+    a:link, a:visited, a:focus{
+      color: black;
+    }
+
+    a:hover {
+      color: white;
+    }
+
+    a:active {
+      color: #077;
+    }
+
   </style>
 </head>
 <body>
+  <?php include 'cabeceraPagina.html' ?>
+
   <div class="login">
     <div class="login-triangle"></div>
     <h2 class="login-header">Iniciar Sesión</h2>
@@ -31,5 +63,6 @@
   </div>
 
   <p><a href="../index.php">Página principal</a></p>
+  <?php include 'piePagina.html' ?>
 </body>
 </html>
