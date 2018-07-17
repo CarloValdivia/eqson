@@ -26,7 +26,7 @@
       </p>
       <p>
         <label for="imagen">
-          <span>Imagen referencial:</span>
+          <span>Imagen (&lt; 300 kb):</span>
           <strong><abbr title="Se requiere una imagen">*</abbr></strong>
         </label>
         <input type="file" id="imagen" name="imagen_producto" accept="image/*" required>
