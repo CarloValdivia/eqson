@@ -3,7 +3,6 @@
 require '../modelos/Usuarios.php';
 
 $data = new Usuarios();
-$data->conectar();
 
 $nombre = $_POST['nombre_usuario'];
 $clave = $_POST['contrasena_usuario'];

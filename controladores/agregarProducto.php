@@ -3,7 +3,6 @@
 require '../modelos/Productos.php';
 
 $data = new Productos();
-$data->conectar();
 
 $marca =  $_POST['marca_producto'];
 $modelo =  $_POST['modelo_producto'];
@@ -39,4 +38,3 @@ if ($imagen && $_FILES['imagen_producto']['size'] <= $maxsize) {
 } else {
     header('Location: ../vistas/almacen.php?tamano=over300kb');
 }
-
