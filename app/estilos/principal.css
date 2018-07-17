@@ -1,26 +1,26 @@
 /* Fuentes locales */
 @font-face {
-    font-family: 'pacificoregular';
-    src: url('fonts/pacifico-webfont.woff2') format('woff2'),
-         url('fonts/pacifico-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'pacificoregular';
+  src: url('fonts/pacifico-webfont.woff2') format('woff2'),
+       url('fonts/pacifico-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'robotoblack';
-    src: url('fonts/roboto-black-webfont.woff2') format('woff2'),
-         url('fonts/roboto-black-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'robotoblack';
+  src: url('fonts/roboto-black-webfont.woff2') format('woff2'),
+       url('fonts/roboto-black-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 @font-face {
-    font-family: 'open_sansregular';
-    src: url('opensans-regular-webfont.woff2') format('woff2'),
-         url('opensans-regular-webfont.woff') format('woff');
-    font-weight: normal;
-    font-style: normal;
+  font-family: 'open_sansregular';
+  src: url('opensans-regular-webfont.woff2') format('woff2'),
+       url('opensans-regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
 }
 
 /* Propiedades de cajas */
@@ -31,62 +31,51 @@ html {
 }
 
 body {
-  width: 90%;
-  margin: 0 auto;
+  width: 98%;
+  margin: 1% auto;
+  background-color: #66b2b2;
 }
 
 header {
-  margin:0;
-  padding: 0;
+  margin: 0;
+  padding: 1rem;
   text-align: center;
 }
 
-header h1 {
-  margin-bottom: 0;
-}
-
-header p {
-  margin-top: 0;
-}
-
-nav, footer {
-  padding: 1%;
-  background-color: white;
+header h1, header p {
+  margin: 0;
 }
 
 nav {
-  height: 50px;
-  margin-bottom: 10px;
+  height: 5rem;
+  margin-bottom: 1rem;
   background-color: #004c4c;
   display: flex;
-  flex-flow: row wrap;
+  align-items: center;
+  justify-content: space-between;
 }
 
-nav .izquierda {
+nav div {
   flex: 1;
   display: flex;
-  align-items: center;
+  justify-content: space-around;
 }
 
-nav .centro {
+nav div:nth-of-type(2n+1) {
+  flex: 2;
+}
+
+nav div .seccion {
   flex: 1;
   display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100%;
-  padding: 0 2em;
+  justify-content: space-around;
 }
 
-nav input {
-  font-size: 1.4rem;
-  height: 30px;
-}
-
-nav input[type="search"] {
+.seccion input[type="search"] {
   flex: 3;
 }
 
-nav input[type="submit"] {
+.seccion input[type="submit"] {
   flex: 1;
   margin-left: 1rem;
   background: #333;
@@ -94,20 +83,9 @@ nav input[type="submit"] {
   color: white;
 }
 
-nav .derecha {
-  flex: 1;
-  display: flex;
-  align-items: center;
-}
-
 nav ul {
   padding: 0;
   list-style-type: none;
-  display: flex;
-}
-
-.izquierda ul, .derecha ul {
-  width: 100%;
 }
 
 nav li {
@@ -170,7 +148,29 @@ nav a:active {
 }
 
 footer {
-  margin-top: 10px;
+  margin-top: 1rem;
+}
+
+footer a {
+  outline: none;
+  text-decoration: none;
+  color: white;
+}
+
+footer a:link, footer a:visited, footer a:focus {
+  color: white;
+}
+
+footer a:hover {
+  color: black;
+}
+
+footer a:active {
+  color: #3fbf7f;
+}
+
+header, footer {
+  background-color: #077;
 }
 
 /* Tipografía */
@@ -179,22 +179,20 @@ html {
   font-family: sans-serif;
 }
 
-header {
-  font-family: 'pacificoregular';
+p {
+  font-size: 1.5rem;
 }
 
 header h1 {
+  font-family: 'robotoblack';
   font-size: 3rem;
 }
 
 header p {
+  font-family: 'pacificoregular';
   font-size: 2rem;
 }
 
 footer, footer p {
   font-size: 1rem;
-}
-
-p {
-  font-size: 1.5rem;
 }
