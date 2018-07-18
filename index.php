@@ -55,7 +55,6 @@
   <main>
     <!-- Mostrando productos -->
     <section class="products">
-      <h2>Stereos - Microcomponentes y Componentes</h2>
       <?php $tuplas = $pdo->query('SELECT * FROM Producto'); ?>
       <?php foreach($tuplas as $record): ?>
       <div class="product-card">
@@ -63,8 +62,9 @@
           <img src="<?php echo $record['imagen'] ?>" alt="<?php echo $record['descripcion'] ?>">
         </div>
         <div class="product-info">
-          <h5><?php echo $record['marca']. '-'. $record['modelo'] ?></h5>
-          <h6><?php echo $record['precioVenta'] ?></h6>
+          <h5><?php echo $record['marca']. ' / '. $record['modelo'] ?></h5>
+          <h6>S/ <?php echo $record['precioVenta'] ?></h6>
+          <p><?php echo $record['descripcion'] ?></p>
         </div>
       </div>
       <?php endforeach; ?>
