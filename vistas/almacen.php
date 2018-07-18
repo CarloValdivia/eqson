@@ -31,6 +31,7 @@
           <span>Imagen (&lt; 300 kb):</span>
           <strong><abbr title="Se requiere una imagen">*</abbr></strong>
         </label>
+        <input type="hidden" name="MAX_FILE_SIZE" value="300000">
         <input type="file" id="imagen" name="imagen_producto" accept="image/*" required>
       </p>
       <?php if (isset($_GET["formato"]) && $_GET["formato"] == 'invalido'): ?>
